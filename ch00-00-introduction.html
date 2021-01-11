@@ -1,0 +1,591 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction - The Rust Programming Language</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="ferris.css">
+        
+        <link rel="stylesheet" href="theme/2018-edition.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The Rust Programming Language</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Foreword</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html" class="active">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> Hello, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> Programming a Guessing Game</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Common Programming Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> Variables and Mutability</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Comments</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> Control Flow</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Understanding Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> What is Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> References and Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> The Slice Type</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> Using Structs to Structure Related Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Defining and Instantiating Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> An Example Program Using Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Method Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enums and Pattern Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Defining an Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> The match Control Flow Operator</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> Concise Control Flow with if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Managing Growing Projects with Packages, Crates, and Modules</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Packages and Crates</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Defining Modules to Control Scope and Privacy</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Paths for Referring to an Item in the Module Tree</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> Bringing Paths Into Scope with the use Keyword</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Separating Modules into Different Files</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Common Collections</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Storing Lists of Values with Vectors</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> Storing UTF-8 Encoded Text with Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> Storing Keys with Associated Values in Hash Maps</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Error Handling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> Unrecoverable Errors with panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Recoverable Errors with Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> To panic! or Not To panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Generic Types, Traits, and Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Generic Data Types</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> Traits: Defining Shared Behavior</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Validating References with Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Writing Automated Tests</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> How to Write Tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Controlling How Tests Are Run</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> An I/O Project: Building a Command Line Program</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Accepting Command Line Arguments</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Reading a File</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Refactoring to Improve Modularity and Error Handling</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Developing the Library’s Functionality with Test Driven Development</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Working with Environment Variables</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Writing Error Messages to Standard Error Instead of Standard Output</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features: Iterators and Closures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures: Anonymous Functions that Can Capture Their Environment</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Processing a Series of Items with Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving Our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Comparing Performance: Loops vs. Iterators</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Customizing Builds with Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Smart Pointers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Using Box<T> to Point to Data on the Heap</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Treating Smart Pointers Like Regular References with the Deref Trait</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Running Code on Cleanup with the Drop Trait</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Rc<T>, the Reference Counted Smart Pointer</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell<T> and the Interior Mutability Pattern</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Reference Cycles Can Leak Memory</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Fearless Concurrency</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> Using Threads to Run Code Simultaneously</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Using Message Passing to Transfer Data Between Threads</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Shared-State Concurrency</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Extensible Concurrency with the Sync and Send Traits</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> Object Oriented Programming Features of Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-what-is-oo.html"><strong aria-hidden="true">17.1.</strong> Characteristics of Object-Oriented Languages</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> Using Trait Objects That Allow for Values of Different Types</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> Implementing an Object-Oriented Design Pattern</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Patterns and Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-all-the-places-for-patterns.html"><strong aria-hidden="true">18.1.</strong> All the Places Patterns Can Be Used</a></li><li class="chapter-item expanded "><a href="ch18-02-refutability.html"><strong aria-hidden="true">18.2.</strong> Refutability: Whether a Pattern Might Fail to Match</a></li><li class="chapter-item expanded "><a href="ch18-03-pattern-syntax.html"><strong aria-hidden="true">18.3.</strong> Pattern Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-advanced-features.html"><strong aria-hidden="true">19.</strong> Advanced Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-unsafe-rust.html"><strong aria-hidden="true">19.1.</strong> Unsafe Rust</a></li><li class="chapter-item expanded "><a href="ch19-03-advanced-traits.html"><strong aria-hidden="true">19.2.</strong> Advanced Traits</a></li><li class="chapter-item expanded "><a href="ch19-04-advanced-types.html"><strong aria-hidden="true">19.3.</strong> Advanced Types</a></li><li class="chapter-item expanded "><a href="ch19-05-advanced-functions-and-closures.html"><strong aria-hidden="true">19.4.</strong> Advanced Functions and Closures</a></li><li class="chapter-item expanded "><a href="ch19-06-macros.html"><strong aria-hidden="true">19.5.</strong> Macros</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-final-project-a-web-server.html"><strong aria-hidden="true">20.</strong> Final Project: Building a Multithreaded Web Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-single-threaded.html"><strong aria-hidden="true">20.1.</strong> Building a Single-Threaded Web Server</a></li><li class="chapter-item expanded "><a href="ch20-02-multithreaded.html"><strong aria-hidden="true">20.2.</strong> Turning Our Single-Threaded Server into a Multithreaded Server</a></li><li class="chapter-item expanded "><a href="ch20-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">20.3.</strong> Graceful Shutdown and Cleanup</a></li></ol></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> A - Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> B - Operators and Symbols</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> C - Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">21.4.</strong> D - Useful Development Tools</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">21.5.</strong> E - Editions</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">21.6.</strong> F - Translations of the Book</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.7.</strong> G - How Rust is Made and “Nightly Rust”</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The Rust Programming Language</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+# Introduction
+-->
+<h1><a class="header" href="#イントロダクション" id="イントロダクション">イントロダクション</a></h1>
+<!-- 
+> Note: This edition of the book is the same as [The Rust Programming
+> Language][nsprust] available in print and ebook format from [No Starch
+> Press][nsp].
+-->
+<blockquote>
+<p>お知らせ：本書のこの版は、<a href="https://nostarch.com/">No Scratch</a>で入手できる
+<a href="https://nostarch.com/rust">The Rust Programming Language</a>（英語版）と同じ内容です。</p>
+</blockquote>
+<!--
+Welcome to *The Rust Programming Language*, an introductory book about Rust.
+The Rust programming language helps you write faster, more reliable software.
+High-level ergonomics and low-level control are often at odds in programming
+language design; Rust challenges that conflict. Through balancing powerful
+technical capacity and a great developer experience, Rust gives you the option
+to control low-level details (such as memory usage) without all the hassle
+traditionally associated with such control.
+-->
+<p><em>プログラミング言語Rust</em>へようこそ。これはRustへの入門書です。Rust言語は、高速で信頼性の高い
+ソフトウェアを書く手助けをしてくれます。抽象度の高さによる扱いやすさと低レイヤの制御は、相容れない
+プログラミング言語の設計方針である事が多いです。しかしながら、Rustはこの問題の解決に挑戦してい
+ます。強力な技術的能力と素晴らしい開発体験を両立させることを通して、Rustは低レイヤの細かな制御
+（メモリの管理など）を、関連する面倒ごとなしに行うための選択肢をもたらします。</p>
+<!--
+## Who Rust Is For
+-->
+<h2><a class="header" href="#rustを使ってほしい人" id="rustを使ってほしい人">Rustを使ってほしい人</a></h2>
+<!--
+Rust is ideal for many people for a variety of reasons. Let’s look at a few of
+the most important groups.
+-->
+<p>様々な理由から、Rustは多くの人にとって理想的なものであるといえます。いくつかの主要な例を見てみま
+しょう。</p>
+<!--
+### Teams of Developers
+-->
+<h3><a class="header" href="#開発者チーム" id="開発者チーム">開発者チーム</a></h3>
+<!--
+Rust is proving to be a productive tool for collaborating among large teams of
+developers with varying levels of systems programming knowledge. Low-level code
+is prone to a variety of subtle bugs, which in most other languages can be
+caught only through extensive testing and careful code review by experienced
+developers. In Rust, the compiler plays a gatekeeper role by refusing to
+compile code with these elusive bugs, including concurrency bugs. By working
+alongside the compiler, the team can spend their time focusing on the program’s
+logic rather than chasing down bugs.
+-->
+<p>Rustは、異なる能力の開発者が大きなチームで協力して開発することを、より生産的にしてくれるツール
+です。低レイヤのコードは、様々な種類の微小なバグが発生しやすく、他のほとんどのプログラミング言語
+では、網羅的なテストと経験豊富な人によるコードレビューを行うことでしか、そのようなバグを発見する
+ことはできませんでした。一方Rustでは、この様に発見しづらかったり、並列処理に伴って発生したりする
+バグを、コンパイラが拒否します。さながら門番のようですね。コンパイラを活用することで、バグの追跡
+ではなくプログラムのロジックに集中できるようになります。</p>
+<!--
+Rust also brings contemporary developer tools to the systems programming world:
+-->
+<p>Rustは、システムプログラミングの世界に現代的な開発ツールをもたらします。</p>
+<!--
+* Cargo, the included dependency manager and build tool, makes adding,
+  compiling, and managing dependencies painless and consistent across the Rust
+  ecosystem.
+* Rustfmt ensures a consistent coding style across developers.
+* The Rust Language Server powers Integrated Development Environment (IDE)
+  integration for code completion and inline error messages.
+-->
+<ul>
+<li>Cargoという依存関係マネージャー兼ビルドツールがRustには付属しています。Cargoは、依存関係
+の追加、コンパイル及び管理を容易にしてくれます。Cargoのおかげで、Rustのエコシステムは一貫性の
+とれたものになっています。</li>
+<li>Rustfmtは、開発者間でコーディングスタイルを統一する簡単な方法を提供してくれます。</li>
+<li>Rust Language Serverは、統合開発環境（IDE）がコード補完やインラインエラーメッセージを提供
+できるようにしてくれます。</li>
+</ul>
+<!--
+By using these and other tools in the Rust ecosystem, developers can be
+productive while writing systems-level code.
+-->
+<p>Rustのエコシステムに則ってこれらのツールを使用すれば、システムレベルのコードを生産性を保ちながら
+書くことができるでしょう。</p>
+<!--
+### Students
+-->
+<h3><a class="header" href="#学生" id="学生">学生</a></h3>
+<!--
+Rust is for students and those who are interested in learning about systems
+concepts. Using Rust, many people have learned about topics like operating
+systems development. The community is very welcoming and happy to answer
+student questions. Through efforts such as this book, the Rust teams want to
+make systems concepts more accessible to more people, especially those new to
+programming.
+-->
+<p>Rustは、システムの概念を学ぶことに興味を持つ学生にとって、良い選択となるでしょう。多くの人が、
+Rustを使ってOSの開発などを学んでいます。コミュニティは学生の皆さんを歓迎しており、質問にも喜んで
+答えてくれるでしょう。Rustチームはこの入門書の執筆などの取り組みを通して、システムの概念を、
+プログラミング初心者も含むより多くの人にとって身近なものにしたいと考えています。</p>
+<!--
+### Companies
+-->
+<h3><a class="header" href="#企業" id="企業">企業</a></h3>
+<!--
+Hundreds of companies, large and small, use Rust in production for a variety of
+tasks. Those tasks include command line tools, web services, DevOps tooling,
+embedded devices, audio and video analysis and transcoding, cryptocurrencies,
+bioinformatics, search engines, Internet of Things applications, machine
+learning, and even major parts of the Firefox web browser.
+-->
+<p>大小何百もの企業が、様々な製品にRustを使用しています。これらの製品には、コマンドラインツールや
+Webサービス、DevOpsツール、組み込み端末、音声及び画像の分析と処理、暗号通貨、生命情報科学、
+検索エンジン、IoTアプリケーション、機械学習そしてWebブラウザのFirefoxなどがあります。</p>
+<!--
+### Open Source Developers
+-->
+<h3><a class="header" href="#oss開発者" id="oss開発者">OSS開発者</a></h3>
+<!--
+Rust is for people who want to build the Rust programming language, community,
+developer tools, and libraries. We’d love to have you contribute to the Rust
+language.
+-->
+<p>Rustは、Rust言語やそのコミュニティ、開発者ツールそしてライブラリなどを開発したいと考えている人
+たちにとっても有用です。私たちは、皆さんがRust言語の発展に寄与してくれることを期待しています。</p>
+<!--
+### People Who Value Speed and Stability
+-->
+<h3><a class="header" href="#速度と安定性を重視する人" id="速度と安定性を重視する人">速度と安定性を重視する人</a></h3>
+<!--
+Rust is for people who crave speed and stability in a language. By speed, we
+mean the speed of the programs that you can create with Rust and the speed at
+which Rust lets you write them. The Rust compiler’s checks ensure stability
+through feature additions and refactoring. This is in contrast to the brittle
+legacy code in languages without these checks, which developers are often
+afraid to modify. By striving for zero-cost abstractions, higher-level features
+that compile to lower-level code as fast as code written manually, Rust
+endeavors to make safe code be fast code as well.
+-->
+<p>Rustは、プログラミング言語に速度と安定性を求めている人々にとっても良い言語です。速度というのは、
+Rustによって生成できるプログラムの実行速度とプログラムを書く速度の両方のことを指します。Rustの
+コンパイラのチェックは、機能の追加やリファクタリングを安定して行えることを保証します。これは、
+こういったチェックを行わない言語で書かれていて脆弱な、修正をするのも恐ろしいレガシーコードとは
+対照的です。またRustは、安全性と速度を両立するコードを実現するために、ゼロコストの抽象化を追求
+しています。このおかげで、自ら低レイヤでコードを書くのと同程度に速いコードを書くことができます。</p>
+<!--
+The Rust language hopes to support many other users as well; those mentioned
+here are merely some of the biggest stakeholders. Overall, Rust’s greatest
+ambition is to eliminate the trade-offs that programmers have accepted for
+decades by providing safety *and* productivity, speed *and* ergonomics. Give
+Rust a try and see if its choices work for you.
+-->
+<p>ここに挙げた人たちは、最大の利害関係者のうちのほんの一部でしかありません。Rust言語は、これ以外に
+も多くのユーザーをサポートしたいと考えています。Rustが全てにおいて目指していることは、プログラマが
+数十年に渡って甘受してきたトレードオフを取り払うことです。この目的を達成するために、
+安全<em>かつ</em>生産的そして高速<em>かつ</em>扱いやすいプログラミング言語を提供しようとしています。</p>
+<!--
+## Who This Book Is For
+-->
+<h2><a class="header" href="#本書の想定読者" id="本書の想定読者">本書の想定読者</a></h2>
+<!--
+This book assumes that you’ve written code in another programming language but
+doesn’t make any assumptions about which one. We’ve tried to make the material
+broadly accessible to those from a wide variety of programming backgrounds. We
+don’t spend a lot of time talking about what programming *is* or how to think
+about it. If you’re entirely new to programming, you would be better served by
+reading a book that specifically provides an introduction to programming.
+-->
+<p>本書は、読者が他のプログラミング言語でコードを書いたことがあることを前提に書かれていますが、どの
+プログラミング言語かということは一切仮定していません。私たちは、多種多様なプログラミングの経歴を
+持つ誰であっても広く理解できるように、努めています。プログラミングとは何か、あるいはプログラミング
+のための思考法についてなどにはあまり言及しません。もしあなたが全くのプログラミング初心者であるなら
+ば、本書とは別にプログラミングへの具体的な導入をしてくれる本を読んだほうがいいでしょう。</p>
+<!--
+## How to Use This Book
+-->
+<h2><a class="header" href="#本書の活用方法" id="本書の活用方法">本書の活用方法</a></h2>
+<!--
+In general, this book assumes that you’re reading it in sequence from front to
+back. Later chapters build on concepts in earlier chapters, and earlier
+chapters might not delve into details on a topic; we typically revisit the
+topic in a later chapter.
+-->
+<p>本書は、始めから順番に読むことを想定して執筆されています。あとの章は、前の章で紹介した概念を既
+に知っているものとして書かれます。また、その場では詳細を掘り下げずに話を進めることがありますが、
+その場合には、基本的にあとの章で改めて確認します。</p>
+<!--
+You’ll find two kinds of chapters in this book: concept chapters and project
+chapters. In concept chapters, you’ll learn about an aspect of Rust. In project
+chapters, we’ll build small programs together, applying what you’ve learned so
+far. Chapters 2, 12, and 20 are project chapters; the rest are concept chapters.
+-->
+<p>本書には、コンセプトの章とプロジェクトの章の２種類の章があります。コンセプトの章では、Rustの特徴
+を学びます。プロジェクトの章では、そこまでで学んだ内容を踏まえて小さなプログラムを書いてみます。
+第２章、第１２章、及び第２０章はプロジェクトの章で、それ以外はコンセプトの章です。</p>
+<!--
+Chapter 1 explains how to install Rust, how to write a “Hello, world!” program,
+and how to use Cargo, Rust’s package manager and build tool. Chapter 2 is a
+hands-on introduction to the Rust language. Here we cover concepts at a high
+level, and later chapters will provide additional detail. If you want to get
+your hands dirty right away, Chapter 2 is the place for that. At first, you
+might even want to skip Chapter 3, which covers Rust features similar to those
+of other programming languages, and head straight to Chapter 4 to learn about
+Rust’s ownership system. However, if you’re a particularly meticulous learner
+who prefers to learn every detail before moving on to the next, you might want
+to skip Chapter 2 and go straight to Chapter 3, returning to Chapter 2 when
+you’d like to work on a project applying the details you’ve learned.
+-->
+<p>第１章は、Rustのインストール方法、ハローワールド、そしてRustにおけるパッケージマネージャー兼
+ビルドツールであるCargoの使い方を説明します。第２章は、Rust言語への実践的な導入です。この章では
+Rustのコンセプトを大まかに学びます。より詳細な説明はこれよりあとの章で行います。第２章は、今すぐ
+にRustで何かを作ってみたいという方にうってつけです。第３章は、他のプログラミング言語でもよく
+取り入れられている機能を紹介しています。この章を飛ばして、Rust特有の所有権システムについて説明し
+ている第４章を先に読むのもいいでしょう。しかしもし、あなたが詳細を理解することに重点を置く几帳面
+な初心者であるならば、先に第３章を読んでから第２章に戻ってくるほうが良いかもしれません。</p>
+<!--
+Chapter 5 discusses structs and methods, and Chapter 6 covers enums, `match`
+expressions, and the `if let` control flow construct. You’ll use structs and
+enums to make custom types in Rust.
+-->
+<p>第５章では構造体とメソッドを、第６章では列挙型、<code>match</code>式そして<code>if let</code>というフロー制御のため
+の構文を紹介します。Rustでは、構造体と列挙型を組み合わせることで独自の型を作ることができます。</p>
+<!--
+In Chapter 7, you’ll learn about Rust’s module system and about privacy rules
+for organizing your code and its public Application Programming Interface
+(API). Chapter 8 discusses some common collection data structures that the
+standard library provides, such as vectors, strings, and hash maps. Chapter 9
+explores Rust’s error-handling philosophy and techniques.
+-->
+<p>第７章では、Rustのモジュールシステムと、コードや公開のAPI（Application Programming
+Interface）を管理するためのプライバシールールについて学びます。第８章では、配列や文字列、
+ハッシュマップなど、標準ライブラリが提供する構造体の内のいくつかを紹介します。第９章では、Rust
+のエラーハンドリングにおける考え方と方法について探求します。</p>
+<!--
+Chapter 10 digs into generics, traits, and lifetimes, which give you the power
+to define code that applies to multiple types. Chapter 11 is all about testing,
+which even with Rust’s safety guarantees is necessary to ensure your program’s
+logic is correct. In Chapter 12, we’ll build our own implementation of a subset
+of functionality from the `grep` command line tool that searches for text
+within files. For this, we’ll use many of the concepts we discussed in the
+previous chapters.
+-->
+<p>第１０章では、異なる複数の型に適用できるコードを定義するための機能であるジェネリクス、トレイト、
+ライフタイムを掘り下げます。第１１章では、その紙幅丸々をテストの話題に費やします。Rustの安全性は
+保証されていますがそれでも、プログラムロジックが正しいことを保証するために、テストは必要です。
+第１２章では、ファイル内のテキストを検索するためのコマンドラインツールである<code>grep</code>と同様の機能の
+一部を、独自に実装してみます。この章では、そこまでで説明した概念の多くを使用します。</p>
+<!--
+Chapter 13 explores closures and iterators: features of Rust that come from
+functional programming languages. In Chapter 14, we’ll examine Cargo in more
+depth and talk about best practices for sharing your libraries with others.
+Chapter 15 discusses smart pointers that the standard library provides and the
+traits that enable their functionality.
+-->
+<p>第１３章では、関数型プログラミング言語に由来するクロージャとイテレータについて理解します。
+第１４章では、Cargoについてより深くまで学んだ後、自作ライブラリを共有する最善の方法を紹介し
+ます。第１５章では、標準ライブラリが提供し、トレイトによって実現されているスマートポインタを紹介し
+ます。</p>
+<!--
+In Chapter 16, we’ll walk through different models of concurrent programming
+and talk about how Rust helps you to program in multiple threads fearlessly.
+Chapter 17 looks at how Rust idioms compare to object-oriented programming
+principles you might be familiar with.
+-->
+<p>第１６章では、並列プログラミングの様々な形式を学びながら、マルチスレッドでのプログラミングを安全
+に行うことをRustがどのように手伝ってくれるかを学びます。第１７章では、みなさんが親しんできたで
+あろうオブジェクト指向プログラミング言語とRustを、その書き方の観点から比較します。</p>
+<!--
+Chapter 18 is a reference on patterns and pattern matching, which are powerful
+ways of expressing ideas throughout Rust programs. Chapter 19 contains a
+smorgasbord of advanced topics of interest, including unsafe Rust, macros, and
+more about lifetimes, traits, types, functions, and closures.
+-->
+<p>第１８章では、Rustであなたのアイデアを表現するための強力な方法である、パターン、そしてパターン
+マッチングについて言及します。第１９章には、マクロや安全性が保証されないRustの書き方、他にも
+ライフタイムやトレイト、型、関数、クロージャについての発展的な話題がいくつも含まれています。</p>
+<!--
+In Chapter 20, we’ll complete a project in which we’ll implement a low-level
+multithreaded web server!
+-->
+<p>そして第２０章では、マルチスレッドで動くWebサーバーを低レイヤで実装します。</p>
+<!--
+Finally, some appendices contain useful information about the language in a
+more reference-like format. Appendix A covers Rust’s keywords, Appendix B
+covers Rust’s operators and symbols, Appendix C covers derivable traits
+provided by the standard library, Appendix D covers some useful development
+tools, and Appendix E explains Rust editions.
+-->
+<p>巻末には、いくつかの付録があります。ここにはRust言語についての有用な情報が、リファレンスに近い
+形式で載っています。付録ＡにはRustのキーワード、付録ＢにはRustの演算子とシンボル、付録Ｃには
+標準ライブラリのトレイト、付録Ｄには便利な開発ツール、そして付録ＥにはRustのエディション
+についての情報が、それぞれ掲載されています。</p>
+<!--
+There is no wrong way to read this book: if you want to skip ahead, go for it!
+You might have to jump back to earlier chapters if you experience any
+confusion. But do whatever works for you.
+-->
+<p>本書をどのように読んでも、間違いということはありませんから、読み飛ばしたいと思う章は、飛ばしても
+らって構いません。前の章を読み返さなければ理解しづらいこともあるかもしれませんが、自分に都合のいい
+ように読むのが一番でしょう。</p>
+<p><span id="ferris"></span></p>
+<!--
+An important part of the process of learning Rust is learning how to read the
+error messages the compiler displays: these will guide you toward working code.
+As such, we’ll provide many examples that don’t compile along with the error
+message the compiler will show you in each situation. Know that if you enter
+and run a random example, it may not compile! Make sure you read the
+surrounding text to see whether the example you’re trying to run is meant to
+error. Ferris will also help you distinguish code that isn’t meant to work:
+-->
+<p>Rustを学ぶ上で特に重要なことは、コンパイラが出力するエラーメッセージの読み方を知ることです。
+エラーメッセージは、コードを正常に動作する方法を教えてくれます。エラーメッセージの読み方を知って
+もらうために、コンパイルできないコードの例を、コンパイラが出力するエラーメッセージとともに掲載する
+ことがあります。そのため、例を適当に選んで実行しようとしたらコンパイルできなかった、ということが
+起こりうることに気をつけてください。必ず周囲の文章を確認して、実行しようとしているコードがエラーに
+なることを予期して例示されているものかどうかを確認してください。フェリスは、そのコードが動くかどう
+かを見分ける手伝いをしてくれます。</p>
+<!--
+| Ferris                                                                 | Meaning                                          |
+|------------------------------------------------------------------------|--------------------------------------------------|
+| <img src="img/ferris/does_not_compile.svg" class="ferris-explain"/>    | This code does not compile!                      |
+| <img src="img/ferris/panics.svg" class="ferris-explain"/>              | This code panics!                                |
+| <img src="img/ferris/unsafe.svg" class="ferris-explain"/>              | This code block contains unsafe code.            |
+| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| This code does not produce the desired behavior. |
+-->
+<table><thead><tr><th>フェリス</th><th>意味</th></tr></thead><tbody>
+<tr><td><img src="img/ferris/does_not_compile.svg" class="ferris-explain"/></td><td>コンパイルできないよ！</td></tr>
+<tr><td><img src="img/ferris/panics.svg" class="ferris-explain"/></td><td>実行に失敗（パニック）するよ！</td></tr>
+<tr><td><img src="img/ferris/unsafe.svg" class="ferris-explain"/></td><td>安全じゃないコードが含まれているよ</td></tr>
+<tr><td><img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/></td><td>想定通りに動かないよ</td></tr>
+</tbody></table>
+<!--
+In most situations, we’ll lead you to the correct version of any code that
+doesn’t compile.
+-->
+<p>多くの場合、コンパイルできないものを修正した後のコードも、みなさんに紹介しています。</p>
+<!--
+## Source Code
+-->
+<h2><a class="header" href="#ソースコード" id="ソースコード">ソースコード</a></h2>
+<!--
+The source files from which this book is generated can be found on
+[GitHub][book].
+-->
+<p>本書のソースファイルは<a href="https://github.com/rust-lang/book/tree/master/src">GitHub</a>で確認できます。（英語版）</p>
+<blockquote>
+<p>訳注：この日本語訳のソースコードは、<a href="https://github.com/misogohan/book/tree/master/src">こちらのリポジトリ</a>で確認できます。</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="foreword.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch01-00-getting-started.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="foreword.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="ch01-00-getting-started.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="ferris.js"></script>
+        
+
+        
+
+    </body>
+</html>
